@@ -4,10 +4,10 @@
 #include <string.h>
 
 /**
- * binary_tree_balance - measures the balance factor of a binary tree
- * @tree: a pointer to the root node of the tree to measure the balance factor
+ * height - measures the height of the left and right
+ * @node: the node counting from
  *
- * Return: If tree is NULL, your function must return 0
+ * Return: If node is NULL, your function must return 0
  */
 int height(const binary_tree_t *node)
 {
@@ -22,9 +22,16 @@ int height(const binary_tree_t *node)
 	left = height(node->left);
 	right = height(node->right);
 
+	/* height of current node is 1 + the taller or the subtrees */
 	return (1 + (left > right ? left : right));
 }
 
+/**
+ * binary_tree_balance - measures the balance factor of a binary tree
+ * @tree: a pointer to the root node of the tree to measure the balance factor
+ *
+ * Return: If tree is NULL, your function must return 0
+ */
 int binary_tree_balance(const binary_tree_t *tree)
 {
 	int left_height;
